@@ -1,0 +1,8 @@
+#include <stdio.h>
+#include <unistd.h>
+int main() {
+  printf("Start PID=%d, parent PID=%d\n", getpid(), getppid());
+  int childPID = getppid();
+  printf("PARENT: PID=%d, child PID=%d\n", getpid(), childPID);
+  return 0;
+}
