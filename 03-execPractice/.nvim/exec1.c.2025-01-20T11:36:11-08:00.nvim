@@ -1,0 +1,9 @@
+#include <stdio.h>
+#include <unistd.h>
+
+int main(){
+  fork();
+  if (getpid() == 1){
+    exec("ls -alh");
+  }
+}

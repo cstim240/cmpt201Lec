@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+  fork();
+  if (getpid() == 0) {
+    printf("using exec");
+    execlp("/bin/ls", "ls", "/home/", "-a -l -h", NULL);
+  }
+}
