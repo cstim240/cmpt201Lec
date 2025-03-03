@@ -1,9 +1,0 @@
-#include <stdio.h>
-#include <unistd.h>
-
-int main() {
-  fork();
-  if (getpid() == 1) {
-    execlp("ls -a -l -h", "ls -a -l -h", NULL);
-  }
-}

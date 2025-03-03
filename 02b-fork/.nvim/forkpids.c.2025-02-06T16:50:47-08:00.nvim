@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+  // print the pid of a parent and pid of a child using getpid and getppid
+
+  char processID = getpid();
+  char parentID = getppid();
+
+  printf("The PID of the parent is: %s\n", parentID);
+  printf("The PID of the calling process is: %s\n", processID);
+}

@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+  // print the pid of a parent and pid of a child using getpid and getppid
+  pid_t pid = fork();
+
+  if (pid == 0) {
+    // if pid is 0, this is the child process
+    printf("PARENT process is: %d, CHILD process is: %d\n", getppid(),
+           getpid());
+  } else {
+    // a non-zero means we are dealing with the parent
+    printf("PARENT process is: %d, CHILD process is: %d\n", getpid(), pid);
+  }
+}

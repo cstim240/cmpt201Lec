@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+  int data;
+  struct Node *next;
+};
+
+int main() {
+  // Welcome! 
+  printf("C Linked List Demo\n");
+
+  // Create a linked list(head)
+  struct Node* head = NULL;
+
+  // Insert some data
+  qppend(head, 10);
+  // Print list
+  //
+  // Free memory
+}

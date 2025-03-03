@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+int main() {
+  // write a program that creates a child process, child process runs 'ls -a
+  // -l', parent process waits for the child process to terminate using
+  // waitpid(), if child exits normally, print the exit status
+
+  pid_t pid = fork();
+
+  if (pid) { // similar to saying non-zero (or parent) process
+    int wstatus = 0;
+    if (waitpid(pid, &wstatus, 0) == -1) {
+      perror("waitpid failed");
+      exit(EXIT_FAILURE);
+    }
+
+  } else {
+    // this is
+    int wstatus = 0; // output param of waitpid
+    if (waitpid(pid, &wstatus, 0) == -1) {
+      printf("Child has terminated, exit status is: %d\n", wstatus);
+      // do something
+    }
+  }
+}

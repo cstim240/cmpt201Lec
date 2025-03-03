@@ -1,8 +1,0 @@
-#include <stdio.h>
-#include <sys/wait.h>
-#include <unistd.h>
-
-int main() { 
-  fork();
-  execl("ls", "-a", "-l", NULL);
-  }

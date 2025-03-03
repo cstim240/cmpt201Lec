@@ -1,0 +1,18 @@
+#include <pthread.h>
+#include <stdio.h>
+#include <unistd.h>
+
+void *myThreadFunc(void *arg) {
+  char *msg = arg;
+  printf("Hello world! From a THREAD\n");
+  printf("The argument is: %s\n", msg);
+  return (void *) strlen(msg);
+}
+
+int main() {
+  pthread_t id;
+  pthread_create(&id, NULL, myThreadFunc, "bazinga");
+
+  // sleep(1);
+  pthread_join(id, NULL);
+}

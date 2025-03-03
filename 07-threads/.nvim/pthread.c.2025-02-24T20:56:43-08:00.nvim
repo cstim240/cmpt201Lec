@@ -1,0 +1,15 @@
+#include <pthread.h>
+#include <stdio.h>
+#include <unistd.h>
+
+void *myThreadFunc(void *arg) {
+  printf("Hello world! From a THREAD\n");
+  return NULL;
+}
+
+int main() {
+  pthread_t id;
+  pthread_create(&id, NULL, myThreadFunc, NULL);
+  //sleep(1);
+  pthread_join(id, NULL); 
+}

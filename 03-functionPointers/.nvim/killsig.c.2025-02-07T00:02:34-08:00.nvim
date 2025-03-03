@@ -1,0 +1,18 @@
+#define _POSIX_C_SOURCE 200809
+#include <signal.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+
+static char *message = "ctrl-c pressed!\n";
+void handle_sigaction(int num) {
+  write(STDOUT_FILENO, message, strlen(message));
+}
+
+int main() {
+  // write a program that creates two processes:
+  // parent process should: use sigaction() and have a SIGINT handler, print
+  // "ctrl-C is pressed" infinite loop calling sleep() child process should:
+  // infinite loop that periodically sends SIGINT to the parent and sleeps
+}

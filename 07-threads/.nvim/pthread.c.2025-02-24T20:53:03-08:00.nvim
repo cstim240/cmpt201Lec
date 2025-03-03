@@ -1,0 +1,12 @@
+#include <pthread.h>
+#include <stdio.h>
+
+void *myThreadFunc(void *arg) {
+  printf("Hello world! From a THREAD\n");
+  return NULL;
+}
+
+int main() {
+  pthread_t id;
+  pthread_create(&id, NULL, myThreadFunc, NULL);
+}

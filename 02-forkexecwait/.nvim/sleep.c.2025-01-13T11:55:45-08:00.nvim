@@ -1,8 +1,0 @@
-#include <stdio.h>
-#include <unistd.h>
-
-int main() {
-  printf("Will sleep for 4 seconds\n");
-  sleep(4);
-  printf("Sleep done!\n");
-}

@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+  //print the pid of a parent and pid of a child using getpid and getppid
+  
+  pid_t processID = fork();
+
+  if (processID == -1){}
+  
+
+}
