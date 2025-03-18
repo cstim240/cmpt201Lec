@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <sys/socket.h>
+
+
+int main() {
+
+  printf("Server!\n");
+  // 1. SOCKET
+  // 2. BIND
+  // 3. LISTEN
+  // 4. ACCEPT
+  // 5. READ
+  // 6. WRITE
+}

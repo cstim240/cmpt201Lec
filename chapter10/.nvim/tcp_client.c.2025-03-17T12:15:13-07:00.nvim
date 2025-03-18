@@ -1,0 +1,10 @@
+#include <stdio.h>
+
+int main() { printf("Client\n"); 
+  //1. SCOKET
+  //2. BIND
+  //3. CONNECT
+  //4. WRITE
+  //5. READ
+  //6. CLOSE
+}

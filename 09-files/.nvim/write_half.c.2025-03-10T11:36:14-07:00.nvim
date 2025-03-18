@@ -1,0 +1,17 @@
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/stats.h>
+
+int main() {
+  // open file (create, read/write permission)
+  int fd = open("tmp", O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+  //
+  // write data
+  //
+  // seek middle of file
+  //
+  // read data
+  //
+  // close file
+}

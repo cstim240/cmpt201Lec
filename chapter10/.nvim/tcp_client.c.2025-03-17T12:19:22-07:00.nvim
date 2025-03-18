@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <sys/socket.h>
+#include <string.h>
+#include <sys/un.h>
+
+int main() {
+  printf("Client\n");
+  // 1. SCOKET
+  int client_fd = socket(AF_UNIX, SOCK_STREAM, 0);
+  // 3. CONNECT
+  struct socketaddr_un addr;
+  memset(&addr, 0, sizeof(addr));
+  addr.sun_family = AF_UNIX;
+  strncpy(addr.sun_path, "tmp", sizeof(addr.sun_path));
+  int connect(client_fd, &addr, sizeof(addr));  
+  // 4. WRITE
+  // 5. READ
+  // 6. CLOSE
+}

@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+  // open file
+  //
+  // write data
+  //
+  // seek middle of file
+  //
+  // read data
+  //
+  // close file
+}

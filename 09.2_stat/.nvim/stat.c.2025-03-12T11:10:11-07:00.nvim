@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <sys/stat.h>
+
+int main(){
+  //use stat() to display if path is file or directory
+  const char *fd = "myfile.txt";
+  struct stat sb; 
+
+  if (stat(fd, sb) == -1){
+    perror("fd is neither file or directory)
+  } else {
+    //file is either file or directory
+  
+  }
+}

@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <sys/socket.h>
+#include <sys/un.h>
+
+int main() {
+
+  printf("Server!\n");
+  // 1. SOCKET - TCP Server on my local computer
+  int socket_fd = socket(AF_UNIX, SOCK_STREAM, 0);
+  // 2. BIND
+  // 3. LISTEN
+  // 4. ACCEPT
+  // 5. READ
+  // 6. WRITE
+}

@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <sys/socket.h>
+#include <sys/un.h>
+
+int main() {
+
+  printf("Server!\n");
+  // 1. SOCKET - TCP Server on my local computer
+  int socket_fd = socket(AF_UNIX, SOCK_STREAM, 0);
+  if (socket_fd == -1) {
+    perror("Socket");
+  }
+  // 2. BIND
+  int ret = bind(socket_fd, const struct sockaddr *addr, socklen_t addrlen);
+
+  if (ret == -1) {
+    perror("bind");
+  }
+  // 3. LISTEN
+  // 4. ACCEPT
+  // 5. READ
+  // 6. WRITE
+}
