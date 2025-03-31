@@ -1,0 +1,16 @@
+#include <stdbool.h>
+
+int main() {
+  printf("Client (UDP)!\n");
+  int socket_fd = socket(AF_UNIX, SOCK_DGRAM, 0);
+  if (socket_fd == -1) {perror("socket");}
+  while (true) {
+    // sendto
+    const int SIZE = 1024;
+    char buff[SIZE];
+    snprintf(buff, SIZE, "Hello world from UDP land!\n");
+    ssize_t bytes_sent =
+        sendto(socket_fd, buff, SIZE, 0, const struct sockaddr *dest_adr,
+               socklen_t addrlen);
+  }
+}

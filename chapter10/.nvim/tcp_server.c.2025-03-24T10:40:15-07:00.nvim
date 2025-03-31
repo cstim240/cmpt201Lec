@@ -20,8 +20,7 @@ int main() {
   memset(&addr, 0, sizeof(struct sockaddr_un));
   addr.sun_family = AF_UNIX;
   strncpy(addr.sun_path, "tmp", sizeof(addr.sun_path) - 1);
-  int ret =
-      bind(socket_fd, (struct sockaddr_un *)&addr, sizeof(struct sockaddr_un));
+  int ret = bind(socket_fd, (struct sockaddr *)&addr, sizeof(addr));
   // march 19 update, we cast struct sockaddr*
 
   if (ret == -1) {

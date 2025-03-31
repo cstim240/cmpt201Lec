@@ -1,0 +1,28 @@
+#include <stdbool.h>
+
+int main() {
+  printf("Client (UDP)!\n");
+  int socket_fd = socket(AF_UNIX, SOCK_DGRAM, 0);
+  if (socket_fd == -1) {
+    perror("socket");
+  }
+
+  struct sockaddr_un addr;
+  memset(&addr, 0, sizeof(addr));
+  addr.sun_family = AF_UNIX;
+  strncpy(addr.sun_path, "tmp", sizeof(addr.sun_path) - 1);
+  int ret = bind(socket_fd, (struct sockaddr *)&addr, sizeof(addr));
+  if (ret == -1) {
+    perror("bind");
+  }
+
+  while (true) {
+    // sendto
+    const int SIZE = 1024;
+    char buff[SIZE];
+    snprintf(buff, SIZE, "Hello world from UDP land!\n");
+    ssize_t bytes_sent =
+        sendto(socket_fd, buff, SIZE, 0, (struct sockaddr*) &addr,
+               sizeof(addr);
+  }
+}

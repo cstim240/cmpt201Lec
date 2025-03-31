@@ -1,0 +1,12 @@
+#include <stdbool.h>
+
+int main(){
+
+  while (true) {
+    //sendto
+    const int SIZE = 1024;
+    char buff[SIZE];
+    snprintf(buff, SIZE, "Hello world from UDP land!\n");
+    ssize_t bytes_sent = sendto(socket_fd, buff, SIZE, 0, const struct sockaddr *dest_adr, socklen_t addrlen);
+  }
+}

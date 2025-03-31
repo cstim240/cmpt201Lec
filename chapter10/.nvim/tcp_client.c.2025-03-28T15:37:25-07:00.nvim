@@ -14,8 +14,7 @@
     exit(EXIT_FAILURE);                                                        \
   } while (0) // use :b# to switch between 'buffers'
 
-    int
-    main() {
+int main() {
   printf("Client\n");
   // 1. SCOKET
   int client_fd = socket(AF_UNIX, SOCK_STREAM, 0);

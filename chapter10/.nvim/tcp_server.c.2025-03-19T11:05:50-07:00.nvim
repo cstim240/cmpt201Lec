@@ -17,11 +17,10 @@ int main() {
 
   // 2. BIND - local socket named "tmp"
   struct sockaddr_un addr;
-  memset(&addr, 0, sizeof(struct sockaddr_un));
+  memset(&addr, 0, sizeof(addr));
   addr.sun_family = AF_UNIX;
   strncpy(addr.sun_path, "tmp", sizeof(addr.sun_path) - 1);
-  int ret =
-      bind(socket_fd, (struct sockaddr_un *)&addr, sizeof(struct sockaddr_un));
+  int ret = bind(socket_fd, (struct sockaddr *)&addr, sizeof(addr));
   // march 19 update, we cast struct sockaddr*
 
   if (ret == -1) {
@@ -45,7 +44,7 @@ int main() {
     const int SIZE = 1024;
     char buff[SIZE];
     ssize_t bytes_read = read(connection_fd, buff, SIZE);
-    // 6. WRITE - nothing for the moment... march 19, added write
+    // 6. WRITE - nothing for the moment... march 19, added write 
     write(STDOUT_FILENO, buff, bytes_read);
 
     close(connection_fd);

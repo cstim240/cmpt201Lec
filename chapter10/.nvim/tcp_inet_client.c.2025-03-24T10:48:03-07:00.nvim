@@ -5,35 +5,37 @@
 #include <sys/un.h>
 #include <unistd.h>
 
-#define MY_SOCK_PATH "tmp"
+#define PORT 8000
 #define BUF_SIZE 64
-@
+#define ADDR "127.0.0.1"
 #define handle_error(msg)                                                      \
   do {                                                                         \
     perror(msg);                                                               \
     exit(EXIT_FAILURE);                                                        \
   } while (0) // use :b# to switch between 'buffers'
 
-    int
-    main() {
-  printf("Client\n");
-  // 1. SCOKET
-  int client_fd = socket(AF_UNIX, SOCK_STREAM, 0);
-  if (client_fd == -1) {
+// TCP INET Client
+// use :b# to switch between 'buffers'
+int main() {
+  struct sockaddr_in addr;
+  int sfd;
+  ssize_t num_read;
+  char buf[BUF_SIZE];
+
+  sfd = socket(AF_INET, SOCK_STREAM, 0);
+  if (sfd == -1) {
     handle_error("socket");
   }
-  // 3. CONNECT
-  struct sockaddr_un addr;
+
   memset(&addr, 0, sizeof(addr));
-  addr.sun_family = AF_UNIX;
-  strncpy(addr.sun_path, "tmp", sizeof(addr.sun_path));
-  int res = connect(client_fd, &addr, sizeof(addr));
-  if (res == -1) {
-    handle_error("connect");
-  }
-  // 4. WRITE
-  int bytes_written = write(client_fd, "Hello world", strlen("Hello world"));
-  // 5. READ - skip?
-  // 6. CLOSE
+  addr.sin_family = AF_INET;
+  addr.sin_port = htons(PORT);
+  if (inet_pton(AF_INET, ADDR, &addr.sin_addr) <= 0)
+    handle_error("inet_pton");
+
+  if (connect(sfd, (struct sockaddr *)&addr, buf, BUF_SIZE)) > 0) 
+    if (write(sfd, buf, buf
+
+
   close(client_fd);
 }

@@ -7,15 +7,14 @@
 
 #define MY_SOCK_PATH "tmp"
 #define BUF_SIZE 64
-@
+
 #define handle_error(msg)                                                      \
   do {                                                                         \
     perror(msg);                                                               \
     exit(EXIT_FAILURE);                                                        \
   } while (0) // use :b# to switch between 'buffers'
 
-    int
-    main() {
+int main() {
   printf("Client\n");
   // 1. SCOKET
   int client_fd = socket(AF_UNIX, SOCK_STREAM, 0);
@@ -28,7 +27,7 @@
   addr.sun_family = AF_UNIX;
   strncpy(addr.sun_path, "tmp", sizeof(addr.sun_path));
   int res = connect(client_fd, &addr, sizeof(addr));
-  if (res == -1) {
+  if (res == -1){
     handle_error("connect");
   }
   // 4. WRITE
